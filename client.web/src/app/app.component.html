@@ -1,0 +1,7 @@
+<router-outlet></router-outlet>
+
+<ul>
+  <li *ngFor="let weather of watherTest$ | async">
+    {{ weather.summary }}: {{ weather.temperatureC }} °C
+  </li>
+</ul>
