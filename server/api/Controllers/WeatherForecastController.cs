@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace api.Controllers
+namespace Badgerer.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

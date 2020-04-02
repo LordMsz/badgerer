@@ -9,6 +9,12 @@ interface IWeatherResponse {
   summary: string;
 }
 
+interface IBadge {
+  badgeId: number;
+  name: string;
+  description: string;
+}
+
 @Component({
   selector: 'badgerer-root',
   templateUrl: './app.component.html',
@@ -16,9 +22,11 @@ interface IWeatherResponse {
 })
 export class AppComponent {
   public watherTest$: Observable<IWeatherResponse[]>;
+  public firstBadge$: Observable<IBadge>;
 
   public constructor(private httpClient: HttpClient) {
     this.watherTest$ = httpClient.get<IWeatherResponse[]>('https://localhost:5001/WeatherForecast');
+    this.firstBadge$ = httpClient.get<IBadge>('https://localhost:5001/Badges');
   }
 
   public onReloadClick(): void {

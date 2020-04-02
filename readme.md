@@ -15,3 +15,4 @@ Badgerer app
 
 #TODO
  - OpenAPI/swagger
+ - mssql extension for Visual Studio Code?
