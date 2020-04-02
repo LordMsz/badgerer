@@ -16,3 +16,4 @@ Badgerer app
 #TODO
  - OpenAPI/swagger
  - mssql extension for Visual Studio Code?
+ - tasks.json in vs code for node commands and dotnet commands?
