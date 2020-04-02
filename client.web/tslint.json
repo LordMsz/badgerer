@@ -44,6 +44,7 @@
       true,
       140
     ],
+    "member-access": [true, "check-constructor"],
     "member-ordering": [
       true,
       {

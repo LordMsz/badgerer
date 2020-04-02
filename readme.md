@@ -8,6 +8,9 @@ Badgerer app
 	- smart component for property viewer for selected request using the service
 	- we don't need to pass anything around
  - a demo with onpush on root and setInterval and other stuff?
+ - component tests demo
+ - let's use https://www.npmjs.com/package/tslint-origin-ordered-imports-rule ?
+ - a demo using angular CLI, like @angular/material schematics for table or nav?
 
 
 #TODO
