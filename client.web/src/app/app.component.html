@@ -1,4 +1,7 @@
-<router-outlet></router-outlet>
+<ul style="display: flex; list-style: none;">
+  <li><a routerLink="badge">Badges</a></li>
+  <li><a routerLink="badge/list">Badges list</a></li>
+</ul>
 
 <mat-card>
   <mat-card-header>
@@ -16,6 +19,4 @@
   </mat-card-actions>
 </mat-card>
 
-<div *ngIf="firstBadge$ | async as firstBadge">
-  {{ firstBadge.badgeId }}: {{ firstBadge.name }} ({{ firstBadge.description }})
-</div>
+<router-outlet></router-outlet>

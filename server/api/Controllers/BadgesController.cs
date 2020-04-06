@@ -24,9 +24,9 @@ namespace Badgerer.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<Badge> Get()
+        public async Task<IReadOnlyCollection<Badge>> Get()
         {
-            Badge result = await this._context.Badges.FirstOrDefaultAsync();
+            IReadOnlyCollection<Badge> result = await this._context.Badges.ToArrayAsync();
 
             return result;
         }
