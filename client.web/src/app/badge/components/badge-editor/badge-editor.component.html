@@ -1,0 +1,19 @@
+<form [formGroup]="badgeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input type="text" formControlName="name" matInput required />
+        <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+            <span>Invalid name: </span>
+            <span *ngIf="name.errors.required">Badge name is required.</span>
+            <span *ngIf="name.errors.maxlength">Badge name must be shorter than 250 characters (your name has {{ name.value?.length }}).</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+    </mat-form-field>
+    <div>
+        <button type="submit" color="primary" mat-stroked-button>Save</button>
+        <button type="button" mat-stroked-button>Cancel</button>
+    </div>
+</form>

@@ -15,6 +15,7 @@ Badgerer app
  - component tests demo
  - let's use https://www.npmjs.com/package/tslint-origin-ordered-imports-rule ?
  - a demo using angular CLI, like @angular/material schematics for table or nav?
+	- like "ng g c badge/components/badge-editor --display-block --lint-fix --module badge --dry-run"
 
 ##TODO in general, technologies
  - OpenAPI/swagger
@@ -26,5 +27,11 @@ Badgerer app
 
 ##Badges
  - OK simple badge list (from db to angular)
- - simple navigation to badge list
+ - OK simple navigation to badge list
+ - simple CRUD for badges
+	- make it simple reactive forms
  - mat-table sorting and paging
+
+##Teams
+ - make a simple list of teams (aka environments)
+ - selecting a route /{team}/badge

@@ -43,7 +43,7 @@ namespace Badgerer.Api
 
             app.UseHttpsRedirection();
 
-            app.UseCors(cors => cors.AllowAnyOrigin());
+            app.UseCors(cors => cors.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseRouting();
 

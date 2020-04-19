@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { BadgeComponent } from './badge.component';
 import { BadgeListComponent } from './pages/badge-list/badge-list.component';
+import { BadgeNewComponent } from './pages/badge-new/badge-new.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: BadgeListComponent
+      },
+      {
+        path: 'new',
+        component: BadgeNewComponent
       },
     ],
   }

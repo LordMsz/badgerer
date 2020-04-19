@@ -1,22 +1,15 @@
-<ul style="display: flex; list-style: none;">
-  <li><a routerLink="badge">Badges</a></li>
-  <li><a routerLink="badge/list">Badges list</a></li>
-</ul>
-
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Weather report</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <ul>
-      <li *ngFor="let weather of watherTest$ | async">
-        {{ weather.summary }}: {{ weather.temperatureC }} °C
-      </li>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <ul style="display: flex; list-style: none;">
+      <li><a routerLink="badge" routerLinkActive="mat-accent" mat-button>Badges</a></li>
     </ul>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="onReloadClick()">Reload</button>
-  </mat-card-actions>
-</mat-card>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <ul style="display: flex; list-style: none;">
+      <li><a routerLink="badge/list" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}" mat-button>Badges list</a></li>
+      <li><a routerLink="badge/new" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}"mat-button>Create new badge</a></li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

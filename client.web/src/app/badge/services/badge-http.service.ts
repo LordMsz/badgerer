@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { IBadge } from '../models/IBadge';
 
@@ -12,5 +12,9 @@ export class BadgeHttpService {
 
   public getList(): Observable<IBadge[]> {
     return this.httpClient.get<IBadge[]>('https://localhost:5001/Badges');
+  }
+
+  public create(badge: IBadge): Observable<IBadge> {
+    return this.httpClient.post<IBadge>('https://localhost:5001/Badges', badge);
   }
 }
