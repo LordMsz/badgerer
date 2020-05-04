@@ -17,4 +17,8 @@ export class BadgeHttpService {
   public create(badge: IBadge): Observable<IBadge> {
     return this.httpClient.post<IBadge>('https://localhost:5001/Badges', badge);
   }
+
+  public delete(badgeId: number): Observable<any> {
+    return this.httpClient.delete(`https://localhost:5001/Badges/${badgeId}`);
+  }
 }

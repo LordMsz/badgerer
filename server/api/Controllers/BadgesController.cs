@@ -32,7 +32,7 @@ namespace Badgerer.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Badge>> GetById(long id)
+        public async Task<ActionResult<Badge>> GetById(int id)
         {
             Badge result = await this._context.Badges.FindAsync(id);
 
@@ -46,6 +46,22 @@ namespace Badgerer.Api.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetById), new { id = badge.BadgeId }, badge);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Badge>> Delete(int id)
+        {
+            var badge = await _context.Badges.FindAsync(id);
+
+            if (badge == null)
+            {
+                return NotFound();
+            }
+
+            _context.Badges.Remove(badge);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

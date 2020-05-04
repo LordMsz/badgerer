@@ -29,7 +29,10 @@ Badgerer app
  - OK simple badge list (from db to angular)
  - OK simple navigation to badge list
  - simple CRUD for badges
-	- make it simple reactive forms
+	- OK make it simple reactive forms
+	- OK delete
+	- detail
+	- edit
  - mat-table sorting and paging
 
 ##Teams

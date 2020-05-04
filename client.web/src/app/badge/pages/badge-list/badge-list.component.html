@@ -1,2 +1,11 @@
 <button mat-stroked-button (click)="onRefresh()">Refresh</button>
-<badgerer-badge-table [badges]="badges$ | async"></badgerer-badge-table>
+<badgerer-badge-table [badges]="badges$ | async" (deleteBadge)="onDeleteBadge($event)"></badgerer-badge-table>
+
+<ng-template #confirmDialogTemplate let-data>
+    <h2 mat-dialog-title>{{ data?.title }}</h2>
+    <mat-dialog-content>{{ data?.message }}</mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-stroked-button [mat-dialog-close]="true">Delete</button>
+        <button mat-stroked-button mat-dialog-close cdkFocusInitial>Cancel</button>
+    </mat-dialog-actions>
+</ng-template>

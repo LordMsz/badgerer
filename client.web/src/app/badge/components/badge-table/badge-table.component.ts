@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 import { IBadge } from '../../models/IBadge';
 
@@ -12,7 +12,9 @@ export class BadgeTableComponent {
 
   @Input() public badges: IBadge[];
 
-  public displayedColumns: string[] = ['badgeId', 'name', 'description'];
+  @Output() public deleteBadge = new EventEmitter<number>();
+
+  public displayedColumns: string[] = ['badgeId', 'name', 'description', 'actions'];
 
   public constructor() { }
 
