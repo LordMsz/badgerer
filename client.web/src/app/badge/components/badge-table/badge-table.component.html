@@ -14,6 +14,9 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
+            <a mat-icon-button routerLink="/badge/detail/{{element.badgeId}}/{{element.name}}" matTooltip="Detail">
+                <mat-icon>description</mat-icon>
+            </a>
             <button mat-icon-button (click)="deleteBadge.emit(element.badgeId)" matTooltip="Delete badge '{{ element.name }}' [{{ element.badgeId }}]">
                 <mat-icon>delete_forever</mat-icon>
             </button>

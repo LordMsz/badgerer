@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
+import { MaterialModule } from 'app/material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BadgeListComponent } from './badge-list.component';
 import { IBadge } from '../../models/IBadge';
@@ -17,6 +19,7 @@ describe('BadgeListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule, NoopAnimationsModule],
       providers: [{provide: BadgeHttpService, useValue: new BadgeHttpServiceMock()}],
       declarations: [ BadgeListComponent ]
     })

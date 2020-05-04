@@ -31,7 +31,7 @@ Badgerer app
  - simple CRUD for badges
 	- OK make it simple reactive forms
 	- OK delete
-	- detail
+	- OK detail
 	- edit
  - mat-table sorting and paging
 

@@ -10,6 +10,10 @@ import { IBadge } from '../models/IBadge';
 export class BadgeHttpService {
   public constructor(private httpClient: HttpClient) { }
 
+  public get(badgeId: number): Observable<IBadge> {
+    return this.httpClient.get<IBadge>(`https://localhost:5001/Badges/${badgeId}`);
+  }
+
   public getList(): Observable<IBadge[]> {
     return this.httpClient.get<IBadge[]>('https://localhost:5001/Badges');
   }

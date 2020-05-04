@@ -1,0 +1,13 @@
+<h2>{{badge?.name || badgePlaceholder?.name}} <span>(id {{ badgePlaceholder?.badgeId }})</span></h2>
+<div *ngIf="!!badge; else loading">
+    <p>{{badge?.description}}</p>
+</div>
+<ng-template #loading>
+    Loading detail...
+</ng-template>
+
+<div>
+    <a mat-stroked-button routerLink="/badge/list" matTooltip="Back to badges list">
+        <mat-icon>arrow_back</mat-icon> Back
+    </a>
+</div>

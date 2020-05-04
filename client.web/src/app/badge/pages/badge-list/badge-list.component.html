@@ -1,5 +1,8 @@
 <button mat-stroked-button (click)="onRefresh()">Refresh</button>
-<badgerer-badge-table [badges]="badges$ | async" (deleteBadge)="onDeleteBadge($event)"></badgerer-badge-table>
+<badgerer-badge-table [badges]="badges$ | async" (deleteBadge)="onDeleteBadge($event)">
+</badgerer-badge-table>
+
+<p *ngIf="loading">Loading...</p>
 
 <ng-template #confirmDialogTemplate let-data>
     <h2 mat-dialog-title>{{ data?.title }}</h2>
