@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, Input, Optional } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
-import { IBadge } from '../../models/IBadge';
+import { IBadge } from '@badgerer/badge/models';
 
 @Component({
   selector: 'badgerer-badge-editor',
@@ -11,7 +11,9 @@ import { IBadge } from '../../models/IBadge';
 })
 export class BadgeEditorComponent implements OnInit {
 
+  @Input() public badge: IBadge;
   @Output() public save = new EventEmitter<IBadge>();
+  @Output() public cancel = new EventEmitter();
 
   public badgeForm = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(250)]],
@@ -21,11 +23,23 @@ export class BadgeEditorComponent implements OnInit {
   public constructor(private fb: FormBuilder) { }
 
   public ngOnInit(): void {
+    if (this.badge) {
+      this.badgeForm.patchValue({
+        name: this.badge.name,
+        description: this.badge.description
+      });
+    }
   }
 
   public onSubmit(): void {
     if (this.badgeForm.valid) {
-      this.save.emit(this.badgeForm.value);
+      const fv = this.badgeForm.value;
+      const result: IBadge = {
+        badgeId: this.badge ? this.badge.badgeId : null,
+        name: fv.name,
+        description: fv.description
+      };
+      this.save.emit(result);
     }
   }
 

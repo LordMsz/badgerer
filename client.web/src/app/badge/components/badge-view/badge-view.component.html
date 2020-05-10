@@ -10,4 +10,7 @@
     <a mat-stroked-button routerLink="/badge/list" matTooltip="Back to badges list">
         <mat-icon>arrow_back</mat-icon> Back
     </a>
+    <a mat-stroked-button routerLink="/badge/edit/{{ badgePlaceholder?.badgeId }}/{{ badge?.name || badgePlaceholder?.name }}" matTooltip="Edit this badge">
+        <mat-icon>edit</mat-icon> Edit
+    </a>
 </div>

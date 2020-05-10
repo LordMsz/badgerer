@@ -1,0 +1,3 @@
+<h1>Edit badge {{ (badgePlaceholder$ | async)?.name }}</h1>
+<badgerer-badge-editor *ngIf="badge$ | async as badge" [badge]="badge" (save)="onSave($event)" (cancel)="onCancel()">
+</badgerer-badge-editor>

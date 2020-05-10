@@ -22,6 +22,10 @@ export class BadgeHttpService {
     return this.httpClient.post<IBadge>('https://localhost:5001/Badges', badge);
   }
 
+  public update(badge: IBadge) {
+    return this.httpClient.put<IBadge>(`https://localhost:5001/Badges/${badge.badgeId}`, badge);
+  }
+
   public delete(badgeId: number): Observable<any> {
     return this.httpClient.delete(`https://localhost:5001/Badges/${badgeId}`);
   }

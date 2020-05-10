@@ -5,6 +5,7 @@ import { BadgeComponent } from './badge.component';
 import { BadgeListComponent } from './pages/badge-list/badge-list.component';
 import { BadgeNewComponent } from './pages/badge-new/badge-new.component';
 import { BadgeDetailComponent } from './pages/badge-detail/badge-detail.component';
+import { BadgeEditComponent } from './pages/badge-edit/badge-edit.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'detail/:id/:badgeUrlName',
         component: BadgeDetailComponent
+      },
+      {
+        path: 'edit/:id/:badgeUrlName',
+        component: BadgeEditComponent
       },
       {
         path: 'new',

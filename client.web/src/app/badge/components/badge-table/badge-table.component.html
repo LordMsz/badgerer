@@ -17,6 +17,9 @@
             <a mat-icon-button routerLink="/badge/detail/{{element.badgeId}}/{{element.name}}" matTooltip="Detail">
                 <mat-icon>description</mat-icon>
             </a>
+            <a mat-icon-button routerLink="/badge/edit/{{element.badgeId}}/{{element.name}}" matTooltip="Edit">
+                <mat-icon>edit</mat-icon>
+            </a>
             <button mat-icon-button (click)="deleteBadge.emit(element.badgeId)" matTooltip="Delete badge '{{ element.name }}' [{{ element.badgeId }}]">
                 <mat-icon>delete_forever</mat-icon>
             </button>

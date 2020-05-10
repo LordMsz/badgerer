@@ -27,4 +27,8 @@ export class BadgeNewComponent {
       e => this.snackBar.open(`Failed to create a badge! ${e ? e.message : ''}`)
     );
   }
+
+  public onCancel(): void {
+    this.router.navigate(['badge', 'list']);
+  }
 }
