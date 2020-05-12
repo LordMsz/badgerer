@@ -1,15 +1,25 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <ul style="display: flex; list-style: none;">
-      <li><a routerLink="badge" routerLinkActive="mat-accent" mat-button>Badges</a></li>
-    </ul>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
-    <ul style="display: flex; list-style: none;">
-      <li><a routerLink="badge/list" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}" mat-button>Badges list</a></li>
-      <li><a routerLink="badge/new" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact: true}"mat-button>Create new badge</a></li>
-    </ul>
-  </mat-toolbar-row>
-</mat-toolbar>
+<nav>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a class="logo" routerLink="/" matTooltip="Badgerer home"><img src="assets/badgerer_logo.svg" /></a>
+      <div mat-tab-nav-bar>
+        <a routerLink="badge" routerLinkActive #badgeActive="routerLinkActive" [active]="badgeActive.isActive"
+          mat-tab-link>Badges</a>
+        <a routerLink="team" routerLinkActive #teamActive="routerLinkActive" [active]="teamActive.isActive"
+          mat-tab-link>Teams</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar color="accent">
+    <mat-toolbar-row>
+      <ul style="display: flex; list-style: none;">
+        <li><a routerLink="badge/list" routerLinkActive="mat-primary" [routerLinkActiveOptions]="{exact: true}"
+            mat-button>Badges list</a></li>
+        <li><a routerLink="badge/new" routerLinkActive="mat-primary" [routerLinkActiveOptions]="{exact: true}"
+            mat-button>Create new badge</a></li>
+      </ul>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</nav>
 
 <router-outlet></router-outlet>

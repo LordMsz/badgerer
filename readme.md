@@ -39,3 +39,39 @@ Badgerer app
 ##Teams
  - make a simple list of teams (aka environments)
  - selecting a route /{team}/badge
+
+
+#Links
+Angular architecture series
+https://blog.angular-university.io/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/
+https://blog.angular-university.io/angular-2-smart-components-vs-presentation-components-whats-the-difference-when-to-use-each-and-why/
+https://blog.angular-university.io/angular-component-design-how-to-avoid-custom-event-bubbling-and-extraneous-properties-in-the-local-component-tree/
+https://blog.angular-university.io/angular-2-redux-ngrx-rxjs/
+https://blog.angular-university.io/angular-ngrx-store-and-effects-crash-course/
+
+Architecture in Angular projects
+https://medium.com/@cyrilletuzi/architecture-in-angular-projects-242606567e40
+
+.NET core CRUD
+https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/
+https://docs.microsoft.com/cs-cz/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio-code
+https://docs.microsoft.com/cs-cz/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1#recommended-learning-path
+
+.NET core SignalR
+https://docs.microsoft.com/cs-cz/aspnet/core/tutorials/signalr?view=aspnetcore-3.1&tabs=visual-studio-code
+
+.NET core versioning
+https://dev.to/99darshan/restful-web-api-versioning-with-asp-net-core-1e8g
+
+Swagger editor
+https://editor.swagger.io/
+
+Swashbuckle/swagger .NET Core
+https://docs.microsoft.com/cs-cz/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio-code
+
+Lemon Mart (rel. Angular book)
+https://github.com/duluca/lemon-mart/blob/master/src/app/navigation-menu/navigation-menu.component.ts
+
+
+Material theme generator
+https://materialtheme.arcsine.dev/

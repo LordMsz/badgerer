@@ -19,7 +19,7 @@ export class BadgeHttpService {
   }
 
   public create(badge: IBadge): Observable<IBadge> {
-    return this.httpClient.post<IBadge>('https://localhost:5001/Badges', badge);
+    return this.httpClient.post<IBadge>('https://localhost:5001/Badges', { name: badge.name, description: badge.description });
   }
 
   public update(badge: IBadge) {

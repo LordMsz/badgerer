@@ -1,0 +1,64 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$dark-text: #000000;
+$dark-primary-text: #3e3e3e;
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+
+$badgerer-primary: (
+  main: #bbda55,
+  lighter: #ebf4cc,
+  darker: #a4cb3b,
+  200: #bbda55, // For slide toggle,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+$badgerer-primary: mat-palette($badgerer-primary, main, lighter, darker);
+
+
+$badgerer-accent: (
+  main: #ededed,
+  lighter: #fafafa,
+  darker: #e5e5e5,
+  200: #ededed, // For slide toggle,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+$badgerer-accent: mat-palette($badgerer-accent, main, lighter, darker);
+
+// The warn palette is optional (defaults to red).
+$badgerer-warn: (
+  main: #ff3300,
+  lighter: #ffc2b3,
+  darker: #ff2000,
+  200: #ff3300, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$badgerer-warn: mat-palette($badgerer-warn, main, lighter, darker);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$badgerer-theme: mat-light-theme($badgerer-primary, $badgerer-accent, $badgerer-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($badgerer-theme);

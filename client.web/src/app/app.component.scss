@@ -1,0 +1,35 @@
+@import 'shared.scss';
+
+.logo {
+    height: 100%;
+
+    img {
+        height: 100%;
+    }
+}
+
+mat-toolbar-row {
+    padding: 0;
+}
+
+.mat-tab-nav-bar {
+    flex-grow: 1;
+    border-color: $color-light-text;
+
+    ::ng-deep {
+        .mat-ink-bar {
+            background-color: $color-light-text;
+        }
+    }
+}
+
+.mat-tab-link {
+    color: $color-dark-text;
+    opacity: 1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
