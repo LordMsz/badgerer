@@ -1,0 +1,23 @@
+@import '~app/change-detection/change-detection.common.scss';
+
+:host {
+  display: block;
+}
+
+:host > div {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 1px solid #dadada;
+
+  cursor: pointer;
+  user-select: none;
+
+  &.flipped {
+    background-color: red;
+  }
+
+  &.changed {
+    border-color: $color-change-detection-onpush;
+  }
+}

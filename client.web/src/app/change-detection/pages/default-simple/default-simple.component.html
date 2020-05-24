@@ -1,0 +1,7 @@
+<div>default-simple.component: Default</div>
+<div>Interval ({{intervalTimeout}}ms) ticks {{ intervalTick }}</div>
+<div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+<!-- a link to issue with hover and change detection https://github.com/angular/components/issues/10306 -->
+<div class="cell-grid">
+    <badgerer-cell *ngFor="let cell of cells" [data]="cell"></badgerer-cell>
+</div>

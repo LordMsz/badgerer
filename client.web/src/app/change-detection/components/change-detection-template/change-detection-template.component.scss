@@ -1,0 +1,17 @@
+@import '~app/change-detection/change-detection.common.scss';
+
+:host {
+  display: block;
+  color: $color-change-detection-onpush;
+  border: 1px solid;
+  padding: 1em;
+}
+
+.dual-pane {
+  display: flex;
+
+  >div {
+    max-width: 50%;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,9 @@
+<p>interval-outside-angular: Default</p>
+<div>default-simple.component: Default</div>
+<div>Interval ({{intervalTimeout}}ms; {{interval ? 'active' : 'inactive'}}) ticks {{ intervalTick }}</div>
+<button mat-stroked-button (click)="toggleInterval()">Toggle interval</button>
+<button mat-stroked-button (click)="toggleIntervalInAngularZone()">Toggle interval <strong>inside</strong> angular zone</button>
+<div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+<div class="cell-grid">
+    <badgerer-cell *ngFor="let cell of cells" [data]="cell"></badgerer-cell>
+</div>

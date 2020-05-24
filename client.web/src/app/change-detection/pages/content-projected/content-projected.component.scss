@@ -1,0 +1,12 @@
+@import '~app/change-detection/change-detection.common.scss';
+
+:host {
+  display: block;
+  color: $color-change-detection-default;
+  border: 1px solid;
+  padding: 1em;
+}
+
+.cell-grid {
+  display: flex;
+}

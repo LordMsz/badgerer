@@ -1,0 +1,48 @@
+<p>content-projected component: Default (all content below is wrapped in change-detection-template)</p>
+<div>
+    <p>OnPush cells (outside content projection)</p>
+    <div class="cell-grid">
+        <badgerer-cell-on-push *ngFor="let cell of cells" [data]="cell"></badgerer-cell-on-push>
+    </div>
+    <p>Default cells (outside content projection)</p>
+    <div class="cell-grid">
+        <badgerer-cell *ngFor="let cell of cells" [data]="cell"></badgerer-cell>
+    </div>
+<div>
+    <button mat-stroked-button (click)="displayContent1 = !displayContent1">Toggle content1</button>
+    <button mat-stroked-button (click)="displayContent2 = !displayContent2">Toggle content2</button>
+    <button mat-stroked-button (click)="displayContent3 = !displayContent3">Toggle content3</button>
+    <button mat-stroked-button (click)="toggleInterval()">Toggle interval</button>
+</div>
+<badgerer-change-detection-template>
+    <div>
+        <div>Interval ({{intervalTimeout}}ms; {{interval ? 'active' : 'inactive'}}) ticks {{ intervalTick }}</div>
+        <div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+        <p>OnPush cells (inside content projection)</p>
+        <div class="cell-grid">
+            <badgerer-cell-on-push *ngFor="let cell of cells" [data]="cell"></badgerer-cell-on-push>
+        </div>
+        <p>Default cells (inside content projection)</p>
+        <div class="cell-grid">
+            <badgerer-cell *ngFor="let cell of cells" [data]="cell"></badgerer-cell>
+        </div>
+        <p>change-detection-template component:</p>
+    </div>
+    <div content1 *ngIf="displayContent1">
+        <div>
+            Projected to "content1" section (from content-projected component)
+            <div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+        </div>
+        <badgerer-onpush-simple></badgerer-onpush-simple>
+    </div>
+    <div content2 *ngIf="displayContent2">
+        <div>
+            Projected to "content2" section (from content-projected component)
+            <div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+        </div>
+        <badgerer-default-simple [gridSize]="500"></badgerer-default-simple>
+    </div>
+    <div content3 *ngIf="displayContent3">
+        <badgerer-interval-outside-angular></badgerer-interval-outside-angular>
+    </div>
+</badgerer-change-detection-template>

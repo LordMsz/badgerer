@@ -1,0 +1,9 @@
+<p>OnPush simple component: OnPush</p>
+<div>Interval ticks {{ intervalTick }}</div>
+<div><button mat-stroked-button matTooltip="This is button tooltip">Button with tooltip (no emitter)</button></div>
+<p>OnPush cells</p>
+<div class="cell-grid">
+    <badgerer-cell-on-push *ngFor="let cell of cells" [data]="cell"></badgerer-cell-on-push>
+</div>
+<p>router-outlet:</p>
+<router-outlet></router-outlet>

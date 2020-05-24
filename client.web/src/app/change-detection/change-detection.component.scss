@@ -1,0 +1,13 @@
+@import './change-detection.common.scss';
+
+:host {
+  display: block;
+}
+
+.onpush {
+  color: $color-change-detection-onpush;
+}
+
+.default {
+  color: $color-change-detection-default;
+}

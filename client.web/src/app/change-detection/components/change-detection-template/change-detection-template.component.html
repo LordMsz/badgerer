@@ -1,0 +1,18 @@
+<p>change-detection-template: OnPush</p>
+<p>ng-content (main content)</p>
+<ng-content></ng-content>
+
+<div class="dual-pane">
+    <div>
+        <p>ng-content: content1</p>
+        <ng-content select="[content1]"></ng-content>
+    </div>
+    <div>
+        <p>ng-content: content2</p>
+        <ng-content select="[content2]"></ng-content>
+    </div>
+</div>
+<div>
+    <p>ng-content: content3</p>
+    <ng-content select="[content3]"></ng-content>
+</div>

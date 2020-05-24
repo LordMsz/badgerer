@@ -1,0 +1,14 @@
+@import '~app/change-detection/change-detection.common.scss';
+
+:host {
+  display: block;
+  color: $color-change-detection-onpush;
+  border: 1px solid;
+  padding: 1em;
+}
+
+:host > div.cell-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(100, auto);
+  grid-gap: 0;
+}

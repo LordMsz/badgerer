@@ -16,7 +16,8 @@
       "dom"
     ],
     "paths": {
-      "@badgerer/badge/*": ["app/badge/*"]
+      "@badgerer/badge/*": ["app/badge/*"],
+      "@badgerer/change-detection/*": ["app/change-detection/*"]
     }
   },
   "angularCompilerOptions": {

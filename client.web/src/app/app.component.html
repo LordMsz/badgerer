@@ -7,6 +7,8 @@
           mat-tab-link>Badges</a>
         <a routerLink="team" routerLinkActive #teamActive="routerLinkActive" [active]="teamActive.isActive"
           mat-tab-link>Teams</a>
+        <a routerLink="change-detection" matTooltip="Change detection demos" routerLinkActive
+          #cdActive="routerLinkActive" [active]="cdActive.isActive" mat-tab-link>CD (demo)</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
