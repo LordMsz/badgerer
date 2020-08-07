@@ -10,8 +10,9 @@ Badgerer app
 	- we don't need to pass anything around
  - a demo with onpush on root and setInterval and other stuff?
 	- also an example of what we have in wolf
-	- in routes, there's a tabRoot container (default strategy), inside there's tabroot component with <router-outlet> and is OnPush!
-	- I think this is the reason why no normal change detection works for us
+	- OK in routes, there's a tabRoot container (default strategy), inside there's tabroot component with <router-outlet> and is OnPush!
+	- OK I think this is the reason why no normal change detection works for us
+	- OK + example with content projection
 	- + also make demos for content projections of components beraking the CD somehow?
  - a discussion about complexity
 	- for instance tabs; we all overlooked a key bug in tabs migration (local storage) that views, when migrated to new version, would be overwritten from local storage
