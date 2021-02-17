@@ -12,12 +12,12 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "badges",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "api": {
+    "badgerer.api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
