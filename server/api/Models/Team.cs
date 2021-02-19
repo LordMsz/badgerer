@@ -5,15 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Badgerer.Api.Models
 {
-    [Table("Badge")]
-    public partial class Badge
+    [Table("Team")]
+    public partial class Team
     {
         [Key]
-        public int BadgeId { get; set; }
+        public int TeamId { get; set; }
         [Required]
         [StringLength(250)]
         public string Name { get; set; }
-        [Required]
         public string Description { get; set; }
     }
 }

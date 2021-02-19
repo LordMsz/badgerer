@@ -11,22 +11,22 @@ export class BadgeHttpService {
   public constructor(private httpClient: HttpClient) { }
 
   public get(badgeId: number): Observable<IBadge> {
-    return this.httpClient.get<IBadge>(`https://localhost:5001/Badges/${badgeId}`);
+    return this.httpClient.get<IBadge>(`https://localhost:5001/api/Badges/${badgeId}`);
   }
 
   public getList(): Observable<IBadge[]> {
-    return this.httpClient.get<IBadge[]>('https://localhost:5001/Badges');
+    return this.httpClient.get<IBadge[]>('https://localhost:5001/api/Badges');
   }
 
   public create(badge: IBadge): Observable<IBadge> {
-    return this.httpClient.post<IBadge>('https://localhost:5001/Badges', { name: badge.name, description: badge.description });
+    return this.httpClient.post<IBadge>('https://localhost:5001/api/Badges', { name: badge.name, description: badge.description });
   }
 
   public update(badge: IBadge) {
-    return this.httpClient.put<IBadge>(`https://localhost:5001/Badges/${badge.badgeId}`, badge);
+    return this.httpClient.put<IBadge>(`https://localhost:5001/api/Badges/${badge.badgeId}`, badge);
   }
 
   public delete(badgeId: number): Observable<any> {
-    return this.httpClient.delete(`https://localhost:5001/Badges/${badgeId}`);
+    return this.httpClient.delete(`https://localhost:5001/api/Badges/${badgeId}`);
   }
 }

@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+// TODO: unify?
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

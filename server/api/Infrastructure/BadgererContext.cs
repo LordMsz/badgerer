@@ -1,5 +1,7 @@
-using Badgerer.Api.Models;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Badgerer.Api.Models;
 
 namespace Badgerer.Api.Infrastructure
 {
@@ -15,6 +17,7 @@ namespace Badgerer.Api.Infrastructure
             modelBuilder.HasDefaultSchema("bg");
         }
 
-        public DbSet<Badge> Badges { get; set; }
+        public virtual DbSet<Badge> Badges { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
     }
 }

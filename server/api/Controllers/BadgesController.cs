@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace Badgerer.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BadgesController : ControllerBase
     {
         private readonly ILogger<BadgesController> _logger;

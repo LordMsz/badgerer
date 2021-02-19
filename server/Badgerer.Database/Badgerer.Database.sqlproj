@@ -65,6 +65,7 @@
     <Build Include="bg\Tables\Badge.sql" />
     <Build Include="Security\bg.sql" />
     <None Include="Data\SeedDev.sql" />
+    <Build Include="bg\Tables\Team.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="localhost.dev.publish.xml" />
@@ -77,8 +78,5 @@
       <DefaultValue>False</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="Badgerer.Database.refactorlog" />
   </ItemGroup>
 </Project>

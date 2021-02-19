@@ -32,6 +32,9 @@ Badgerer app
 	- we need to be very careful about packages; most of all about those used in root
 	- for example this package triggers change detection all the time
 	- https://github.com/rednez/angular-user-idle/issues/81
+ - TODO: not using pre-compiled config, inspiration: https://medium.com/most-wanted-experts/angular-application-configurations-best-practices-2e28514b9b4e
+ - a demo of using entity framework context scaffolding
+	- dotnet ef dbcontext scaffold "Server=(localdb)\MSSQLLocalDB;Database=BadgererDB;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer --data-annotations --context-dir Infrastructure --output-dir Models --context BadgererContext --project api --force
 
 ## TODO in general, technologies
  - OpenAPI/swagger

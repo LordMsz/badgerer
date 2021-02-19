@@ -1,0 +1,6 @@
+﻿CREATE TABLE [bg].[Team]
+(
+	[TeamId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(250) NOT NULL, 
+    [Description] NVARCHAR(MAX) NULL
+)
