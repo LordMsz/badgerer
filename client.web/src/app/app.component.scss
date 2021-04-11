@@ -1,29 +1,21 @@
-@import 'shared.scss';
+@import 'shared';
 
-.logo {
-    height: 100%;
-
-    img {
-        height: 100%;
-    }
-}
-
-mat-toolbar-row {
-    padding: 0;
+:host {
+  display: block;
 }
 
 .mat-tab-nav-bar {
-    flex-grow: 1;
-    border-color: $color-light-text;
+  flex-grow: 1;
+  border-color: $color-light-text;
 
-    ::ng-deep {
-        .mat-ink-bar {
-            background-color: $color-light-text;
-        }
-    }
+  ::ng-deep {
+      .mat-ink-bar {
+          background-color: $color-light-text;
+      }
+  }
 }
 
 .mat-tab-link {
-    color: $color-dark-text;
-    opacity: 1;
+  color: $color-dark-text;
+  opacity: 1;
 }
