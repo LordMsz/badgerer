@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dotnet": "echo Starting... && ng serve",
     "build": "ng build",
+    "build:dotnet": "ng build --prod --aot --output-path ../server/api/ClientApp",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --type-check --fix",

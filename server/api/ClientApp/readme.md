@@ -1,0 +1,1 @@
+﻿This folder should contain static frontend build files and all content is ignored in SCM
