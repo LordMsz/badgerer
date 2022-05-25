@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Badgerer.Api", "api\Badgerer.Api.csproj", "{62CEB0F2-1DE3-45F2-8044-009FDF57A1A2}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Badgerer.Database", "Badgerer.Database\Badgerer.Database.sqlproj", "{D3C21353-48D7-4D45-8341-238F78697BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badgerer.Api.Tests", "Badgerer.Api.Tests\Badgerer.Api.Tests.csproj", "{7678A3B7-3513-416D-B2C1-F2B086B48F7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,11 @@ Global
 		{D3C21353-48D7-4D45-8341-238F78697BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3C21353-48D7-4D45-8341-238F78697BE7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{D3C21353-48D7-4D45-8341-238F78697BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3C21353-48D7-4D45-8341-238F78697BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3C21353-48D7-4D45-8341-238F78697BE7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7678A3B7-3513-416D-B2C1-F2B086B48F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7678A3B7-3513-416D-B2C1-F2B086B48F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7678A3B7-3513-416D-B2C1-F2B086B48F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7678A3B7-3513-416D-B2C1-F2B086B48F7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
