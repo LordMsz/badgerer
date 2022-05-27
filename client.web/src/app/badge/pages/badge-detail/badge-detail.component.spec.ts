@@ -1,10 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 
 import { BadgeDetailComponent } from './badge-detail.component';
 import { IBadge } from '@badgerer/badge/models';
 import { BadgeHttpService } from '@badgerer/badge/services';
+import { BadgeViewComponent } from '@badgerer/badge/components/badge-view/badge-view.component';
 
 class BadgeDetailHttpServiceMock {
   public get(): Observable<IBadge> {
@@ -12,15 +13,15 @@ class BadgeDetailHttpServiceMock {
   }
 }
 
-describe('BadgeDetailComponent', () => {
+fdescribe('BadgeDetailComponent', () => {
   let component: BadgeDetailComponent;
   let fixture: ComponentFixture<BadgeDetailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule ],
       providers: [{provide: BadgeHttpService, useValue: new BadgeDetailHttpServiceMock()}],
-      declarations: [ BadgeDetailComponent ]
+      declarations: [ BadgeDetailComponent, BadgeViewComponent ]
     })
     .compileComponents();
   }));

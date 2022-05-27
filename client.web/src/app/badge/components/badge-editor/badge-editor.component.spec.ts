@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -6,11 +6,11 @@ import { MaterialModule } from 'app/material.module';
 import { BadgeEditorComponent } from './badge-editor.component';
 import { IBadge } from '../../models/IBadge';
 
-describe('BadgeEditorComponent', () => {
+fdescribe('BadgeEditorComponent', () => {
   let component: BadgeEditorComponent;
   let fixture: ComponentFixture<BadgeEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule, MaterialModule, NoopAnimationsModule],
       declarations: [BadgeEditorComponent]

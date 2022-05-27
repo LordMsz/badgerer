@@ -1,14 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'app/material.module';
 
 import { TeamTableComponent } from './team-table.component';
 
-describe('TeamTableComponent', () => {
+fdescribe('TeamTableComponent', () => {
   let component: TeamTableComponent;
   let fixture: ComponentFixture<TeamTableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamTableComponent ]
+      declarations: [ TeamTableComponent ],
+      imports: [RouterTestingModule, MaterialModule, CommonModule, MatSortModule, MatTableModule]
     })
     .compileComponents();
   }));

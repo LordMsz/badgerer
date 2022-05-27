@@ -1,14 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TeamTableComponent } from 'app/team/components/team-table/team-table.component';
+import { TeamHttpService } from 'app/team/services/team-http.service';
 
 import { TeamListComponent } from './team-list.component';
 
-describe('TeamListComponent', () => {
+fdescribe('TeamListComponent', () => {
   let component: TeamListComponent;
   let fixture: ComponentFixture<TeamListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamListComponent ]
+      declarations: [ TeamListComponent, TeamTableComponent ],
+      providers: [TeamHttpService],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));

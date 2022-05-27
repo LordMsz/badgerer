@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { BadgeHttpService } from './badge-http.service';
 import { IBadge } from '../models/IBadge';
 
-describe('BadgeHttpService', () => {
+fdescribe('BadgeHttpService', () => {
   let httpTestingController: HttpTestingController;
 
   let service: BadgeHttpService;
@@ -38,7 +38,7 @@ describe('BadgeHttpService', () => {
       expect(badges[1].name).toEqual('Test2');
     });
 
-    const request = httpTestingController.expectOne('https://localhost:5001/Badges');
+    const request = httpTestingController.expectOne('https://localhost:5001/api/Badges');
     expect(request.request.method).toEqual('GET');
 
     request.flush(mockBadges);

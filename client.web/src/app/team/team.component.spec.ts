@@ -1,14 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'app/material.module';
 
 import { TeamComponent } from './team.component';
 
-describe('TeamComponent', () => {
+fdescribe('TeamComponent', () => {
   let component: TeamComponent;
   let fixture: ComponentFixture<TeamComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamComponent ]
+      declarations: [ TeamComponent ],
+      imports: [RouterTestingModule, MaterialModule]
     })
     .compileComponents();
   }));
