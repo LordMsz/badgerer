@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnChanges, AfterViewChecked, Input, ElementRef, NgZone, SimpleChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnChanges, AfterViewChecked, Input, ElementRef, NgZone } from '@angular/core';
 import { ICell } from '@badgerer/change-detection/models/Cell';
 
 @Component({
@@ -7,7 +7,7 @@ import { ICell } from '@badgerer/change-detection/models/Cell';
   styleUrls: ['./cell-on-push.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CellOnPushComponent implements OnChanges, AfterViewChecked {
+export class CellOnPushComponent implements AfterViewChecked {
 
   @Input() public data: ICell;
 
@@ -17,9 +17,6 @@ export class CellOnPushComponent implements OnChanges, AfterViewChecked {
     private el: ElementRef,
     private zone: NgZone,
   ) {
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
   }
 
   public onClick() {

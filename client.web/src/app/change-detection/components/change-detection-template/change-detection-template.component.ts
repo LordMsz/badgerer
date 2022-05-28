@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'badgerer-change-detection-template',
@@ -6,11 +6,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./change-detection-template.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChangeDetectionTemplateComponent implements OnInit {
+export class ChangeDetectionTemplateComponent {
 
   public constructor() { }
-
-  public ngOnInit(): void {
-  }
 
 }
