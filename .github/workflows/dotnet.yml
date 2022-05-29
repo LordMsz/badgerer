@@ -33,6 +33,7 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
+        working-directory: client.web
     - run: npm ci
       working-directory: client.web
     - run: npm run build:dotnet
