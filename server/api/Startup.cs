@@ -61,10 +61,9 @@ namespace Badgerer.Api
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = this.spaSettings.SourcePath;
-
                 if(env.IsDevelopment())
                 {
+                    spa.Options.SourcePath = this.spaSettings.SourcePath;
                     spa.UseAngularCliServer(npmScript: "start:dotnet"); // workaround for https://github.com/dotnet/aspnetcore/issues/17277
                 }
             });
