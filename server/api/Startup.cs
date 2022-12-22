@@ -27,6 +27,9 @@ namespace Badgerer.Api
 
             services.AddControllers();
 
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+
             services.AddDbContext<BadgererContext>(opt =>
                opt.UseSqlServer(Configuration.GetConnectionString("BadgererDB")));
 
@@ -42,6 +45,13 @@ namespace Badgerer.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger(c => c.RouteTemplate = "api/swagger/{documentname}/swagger.json");
+                app.UseSwaggerUI(c =>
+                {
+                    c.RoutePrefix = "api";
+                    c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Badgerer API v1");
+                });
             }
 
             app.UseHttpsRedirection();
