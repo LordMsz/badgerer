@@ -24,7 +24,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "badgerer",
+            "prefix": "bg",
             "style": "camelCase"
           }
         ],

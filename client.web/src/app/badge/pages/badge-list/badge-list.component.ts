@@ -2,10 +2,12 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { switchMap, filter, finalize } from 'rxjs/operators';
+import { switchMap, filter } from 'rxjs/operators';
 
 import { IBadge } from '@badgerer/badge/models';
 import { BadgeHttpService } from '@badgerer/badge/services';
+import { withLoading } from 'app/shared/operators/withLoading';
+import { ILoadable } from 'app/shared/operators/ILoadable';
 
 @Component({
   selector: 'badgerer-badge-list',
@@ -15,8 +17,7 @@ import { BadgeHttpService } from '@badgerer/badge/services';
 export class BadgeListComponent {
   @ViewChild('confirmDialogTemplate') public confirmDialogTemplate: TemplateRef<any>;
 
-  public badges$: Observable<IBadge[]>;
-  public loading = false;
+  public badges$: Observable<ILoadable<IBadge[]>>;
 
   public constructor(
     private readonly badgeHttpService: BadgeHttpService,
@@ -27,9 +28,8 @@ export class BadgeListComponent {
   }
 
   public onRefresh(): void {
-    this.loading = true;
     this.badges$ = this.badgeHttpService.getList().pipe(
-      finalize(() => this.loading = false)
+      withLoading()
     );
   }
 

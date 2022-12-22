@@ -3,23 +3,21 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'app/material.module';
 
 import { AppHeaderComponent } from './components/app-header/app-header.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from 'app/app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IfLoadingDirective } from './directives/if-loading.directive';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [AppHeaderComponent],
+  declarations: [AppHeaderComponent, IfLoadingDirective],
   imports: [
     CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    RouterModule,
 
-    MaterialModule,
+    MaterialModule
   ],
   exports: [
-    AppHeaderComponent
+    AppHeaderComponent,
+    IfLoadingDirective
   ]
 })
 export class SharedModule { }
