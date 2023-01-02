@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Badgerer.Api.Infrastructure;
 using Badgerer.Api.Models;
+using Badgerer.Api.Proxies;
 using Badgerer.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,11 +20,13 @@ namespace Badgerer.Api.Controllers
     {
         private readonly ILogger<BadgesController> _logger;
         private readonly BadgererContext _context;
+        private readonly ImageGenerator _imageGenerator;
 
-        public BadgesController(ILogger<BadgesController> logger, BadgererContext context)
+        public BadgesController(ILogger<BadgesController> logger, BadgererContext context, ImageGenerator imageGenerator)
         {
             this._logger = logger;
             this._context = context;
+            this._imageGenerator = imageGenerator;
         }
 
         [HttpGet]
@@ -45,16 +48,8 @@ namespace Badgerer.Api.Controllers
         [HttpGet("GenerateImage")]
         public async Task<ActionResult<string>> GenerateImage()
         {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            // Adding app id as part of the header
-            // TODO: go through dapr
-            // client.DefaultRequestHeaders.Add("dapr-app-id", "badgerer-api");
-
-            // TODO: URL handling, config, error handling etc.
-            var response = await client.GetFromJsonAsync<BadgeImage>($"http://localhost:5165/BadgeImage");
-
-            return response.Data;
+            BadgeImage img = await _imageGenerator.GenerateImage();
+            return img.Data;
         }
 
         [HttpPost]

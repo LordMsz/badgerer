@@ -1,4 +1,5 @@
 using Badgerer.Api.Infrastructure;
+using Badgerer.Api.Proxies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -24,6 +25,8 @@ namespace Badgerer.Api
         public void ConfigureServices(IServiceCollection services)
         {
             this.spaSettings = Configuration.Get<SpaSettings>();
+
+            services.AddSingleton<ImageGenerator>();
 
             services.AddControllers();
 
