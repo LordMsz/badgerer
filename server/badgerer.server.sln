@@ -13,6 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Badgerer.ImageGenerator", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badgerer.Common", "Badgerer.Common\Badgerer.Common.csproj", "{090A6403-EFD0-4795-B8C2-098869CA7781}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{7D091718-F481-418D-8F38-9AF9E619085B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{5E84C7B6-6750-4A01-818C-0E45C3FFDDFE}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config\config.yaml = dapr\config\config.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E84C7B6-6750-4A01-818C-0E45C3FFDDFE} = {7D091718-F481-418D-8F38-9AF9E619085B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77019EEB-AD9F-471F-8AC8-5D97AC7B02D9}
