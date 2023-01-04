@@ -1,5 +1,6 @@
 using Badgerer.Api.Infrastructure;
 using Badgerer.Api.Proxies;
+using Dapr.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Badgerer.Api
 {
@@ -26,7 +28,15 @@ namespace Badgerer.Api
         {
             this.spaSettings = Configuration.Get<SpaSettings>();
 
-            services.AddSingleton<ImageGenerator>();
+            var daprHttpPort = Environment.GetEnvironmentVariable("DAPR_HTTP_PORT") ?? "5101";
+            var daprGrpcPort = Environment.GetEnvironmentVariable("DAPR_GRPC_PORT") ?? "61001";
+            services.AddDaprClient(builder => builder
+                .UseHttpEndpoint($"http://localhost:{daprHttpPort}")
+                .UseGrpcEndpoint($"http://localhost:{daprGrpcPort}"));
+
+            services.AddSingleton(_ => new ImageGenerator(
+                DaprClient.CreateInvokeHttpClient("badgerer-image-generator", $"http://localhost:{daprHttpPort}")
+            ));
 
             services.AddControllers();
 
@@ -74,7 +84,7 @@ namespace Badgerer.Api
 
             app.UseSpa(spa =>
             {
-                if(env.IsDevelopment())
+                if (env.IsDevelopment())
                 {
                     spa.Options.SourcePath = this.spaSettings.SourcePath;
                     spa.UseAngularCliServer(npmScript: "start:dotnet"); // workaround for https://github.com/dotnet/aspnetcore/issues/17277
