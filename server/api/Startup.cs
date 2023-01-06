@@ -14,7 +14,7 @@ namespace Badgerer.Api
 {
     public class Startup
     {
-        private SpaSettings spaSettings;
+        private SpaSettings _spaSettings = new SpaSettings { SourcePath = "../../client.web", StaticFilesRootPath = "ClientApp" };
 
         public Startup(IConfiguration configuration)
         {
@@ -26,7 +26,7 @@ namespace Badgerer.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            this.spaSettings = Configuration.Get<SpaSettings>();
+            this._spaSettings = Configuration.Get<SpaSettings>() ?? this._spaSettings;
 
             var daprHttpPort = Environment.GetEnvironmentVariable("DAPR_HTTP_PORT") ?? "5101";
             var daprGrpcPort = Environment.GetEnvironmentVariable("DAPR_GRPC_PORT") ?? "61001";
@@ -48,7 +48,7 @@ namespace Badgerer.Api
 
             services.AddSpaStaticFiles(spa =>
             {
-                spa.RootPath = this.spaSettings.StaticFilesRootPath;
+                spa.RootPath = this._spaSettings.StaticFilesRootPath;
             });
         }
 
@@ -86,7 +86,7 @@ namespace Badgerer.Api
             {
                 if (env.IsDevelopment())
                 {
-                    spa.Options.SourcePath = this.spaSettings.SourcePath;
+                    spa.Options.SourcePath = this._spaSettings.SourcePath;
                     spa.UseAngularCliServer(npmScript: "start:dotnet"); // workaround for https://github.com/dotnet/aspnetcore/issues/17277
                 }
             });

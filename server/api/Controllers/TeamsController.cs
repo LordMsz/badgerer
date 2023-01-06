@@ -32,7 +32,12 @@ namespace Badgerer.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Team>> GetById(int id)
         {
-            Team team = await this._context.Teams.FindAsync(id);
+            Team? team = await this._context.Teams.FindAsync(id);
+
+            if(team == null)
+            {
+                return NotFound();
+            }
 
             return Ok(team);
         }
@@ -49,7 +54,13 @@ namespace Badgerer.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Team>> Update(int id, [FromBody] Team team)
         {
-            Team result = await this._context.Teams.FindAsync(id);
+            Team? result = await this._context.Teams.FindAsync(id);
+
+            if(result == null)
+            {
+                return NotFound();
+            }
+
             result.Name = team.Name;
             result.Description = team.Description;
             await _context.SaveChangesAsync();
@@ -60,7 +71,7 @@ namespace Badgerer.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Team>> Delete(int id)
         {
-            Team team = await _context.Teams.FindAsync(id);
+            Team? team = await _context.Teams.FindAsync(id);
 
             if (team == null)
             {

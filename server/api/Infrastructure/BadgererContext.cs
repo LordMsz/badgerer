@@ -17,7 +17,7 @@ namespace Badgerer.Api.Infrastructure
             modelBuilder.HasDefaultSchema("bg");
         }
 
-        public virtual DbSet<Badge> Badges { get; set; }
-        public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<Badge> Badges => Set<Badge>();
+        public virtual DbSet<Team> Teams => Set<Team>();
     }
 }

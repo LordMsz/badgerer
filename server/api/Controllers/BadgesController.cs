@@ -40,9 +40,14 @@ namespace Badgerer.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Badge>> GetById(int id)
         {
-            Badge result = await this._context.Badges.FindAsync(id);
+            Badge? result = await this._context.Badges.FindAsync(id);
 
-            return result;
+            if(result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
         }
 
         [HttpGet("GenerateImage")]
@@ -64,7 +69,13 @@ namespace Badgerer.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Badge>> Update(int id, Badge badge)
         {
-            Badge result = await this._context.Badges.FindAsync(id);
+            Badge? result = await this._context.Badges.FindAsync(id);
+
+            if(result == null)
+            {
+                return NotFound();
+            }
+
             result.Name = badge.Name;
             result.Description = badge.Description;
             await _context.SaveChangesAsync();

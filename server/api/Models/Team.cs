@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Badgerer.Api.Models
@@ -12,7 +10,7 @@ namespace Badgerer.Api.Models
         public int TeamId { get; set; }
         [Required]
         [StringLength(250)]
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
     }
 }

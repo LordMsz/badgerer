@@ -17,7 +17,7 @@ namespace Badgerer.Api.Proxies
         {
             // TODO: config, error handling etc.
             // TODO: dapr port config and env vars
-            return await _httpClient.GetFromJsonAsync<BadgeImage>($"BadgeImage");
+            return await _httpClient.GetFromJsonAsync<BadgeImage>($"BadgeImage") ?? new BadgeImage();
         }
     }
 }
