@@ -8,12 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLog;
+using NLog.Web;
 using System;
 
 namespace Badgerer.Api
 {
     public class Startup
     {
+        private Logger _logger = LogManager.GetCurrentClassLogger();
+
         private SpaSettings _spaSettings = new SpaSettings { SourcePath = "../../client.web", StaticFilesRootPath = "ClientApp" };
 
         public Startup(IConfiguration configuration)
@@ -30,6 +34,7 @@ namespace Badgerer.Api
 
             var daprHttpPort = Environment.GetEnvironmentVariable("DAPR_HTTP_PORT") ?? "5101";
             var daprGrpcPort = Environment.GetEnvironmentVariable("DAPR_GRPC_PORT") ?? "61001";
+            this._logger.Debug("Using dapr http port: {httpPort} and grpc port: {grpcPort}", daprHttpPort, daprGrpcPort);
             services.AddDaprClient(builder => builder
                 .UseHttpEndpoint($"http://localhost:{daprHttpPort}")
                 .UseGrpcEndpoint($"http://localhost:{daprGrpcPort}"));
