@@ -1,4 +1,5 @@
 ﻿using Badgerer.Common;
+using Badgerer.Common.Exceptions;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -17,7 +18,14 @@ namespace Badgerer.Api.Proxies
         {
             // TODO: config, error handling etc.
             // TODO: dapr port config and env vars
-            return await _httpClient.GetFromJsonAsync<BadgeImage>($"BadgeImage") ?? new BadgeImage();
+            var img = await _httpClient.GetFromJsonAsync<BadgeImage>($"BadgeImage");
+
+            if (img == null)
+            {
+                throw new BadgererException("Failed to get generated image from service");
+            }
+
+            return img;
         }
     }
 }
