@@ -18,6 +18,7 @@ export class BadgeListComponent {
   @ViewChild('confirmDialogTemplate') public confirmDialogTemplate: TemplateRef<any>;
 
   public badges$: Observable<ILoadable<IBadge[]>>;
+  public badgesTotal$: Observable<ILoadable<number>>;
 
   public constructor(
     private readonly badgeHttpService: BadgeHttpService,
@@ -29,6 +30,10 @@ export class BadgeListComponent {
 
   public onRefresh(): void {
     this.badges$ = this.badgeHttpService.getList().pipe(
+      withLoading()
+    );
+
+    this.badgesTotal$ = this.badgeHttpService.getTotal().pipe(
       withLoading()
     );
   }

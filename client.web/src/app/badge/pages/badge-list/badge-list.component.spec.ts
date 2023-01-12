@@ -12,6 +12,10 @@ class BadgeHttpServiceMock {
   public getList(): Observable<IBadge[]> {
     return of([]);
   }
+
+  public getTotal() : Observable<number> {
+    return of(0);
+  }
 }
 
 describe('BadgeListComponent', () => {

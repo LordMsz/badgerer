@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { BadgeHttpService } from './badge-http.service';
 import { IBadge } from '../models/IBadge';
+import { GraphqlBaseHttpService } from 'app/shared/services';
 
 describe('BadgeHttpService', () => {
   let httpTestingController: HttpTestingController;
@@ -11,7 +12,8 @@ describe('BadgeHttpService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [{ provide: GraphqlBaseHttpService, useValue: null }]
     });
     httpTestingController = TestBed.inject(HttpTestingController);
     service = TestBed.inject(BadgeHttpService);
