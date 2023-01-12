@@ -1,6 +1,8 @@
 using Badgerer.Api.Infrastructure;
 using Badgerer.Api.Proxies;
 using Dapr.Client;
+using EntityGraphQL.AspNet;
+using EntityGraphQL.Schema;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -11,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using NLog;
 using NLog.Web;
 using System;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace Badgerer.Api
 {
@@ -43,13 +47,22 @@ namespace Badgerer.Api
                 DaprClient.CreateInvokeHttpClient("badgerer-image-generator", $"http://localhost:{daprHttpPort}")
             ));
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(o =>
+                {
+                    // Use enum field names instead of numbers
+                    o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    // EntityGraphQL internally builds types with fields
+                    o.JsonSerializerOptions.IncludeFields = true;
+                });
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
             services.AddDbContext<BadgererContext>(opt =>
                opt.UseSqlServer(Configuration.GetConnectionString("BadgererDB")));
+
+            services.AddGraphQLSchema<BadgererContext>(); // add SchemaProvider and build schema
 
             services.AddSpaStaticFiles(spa =>
             {
@@ -84,6 +97,8 @@ namespace Badgerer.Api
 
             app.UseEndpoints(endpoints =>
             {
+                // TODO: try to revive, was problematic, killing the whole app; see QueryController for more details
+                //endpoints.MapGraphQL<BadgererContext>(); // default /graphql endpoint
                 endpoints.MapControllers();
             });
 
