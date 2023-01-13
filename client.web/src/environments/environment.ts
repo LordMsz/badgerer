@@ -7,6 +7,7 @@ import { environmentBase } from './environment.base';
 export const environment = {
   ...environmentBase,
   apiUrl: 'https://localhost:5001/api',
+  graphQLUrl: 'https://localhost:5001/graphql',
 
   production: false
 };

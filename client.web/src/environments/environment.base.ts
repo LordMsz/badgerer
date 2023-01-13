@@ -1,5 +1,6 @@
 export const environmentBase = {
   production: false,
 
-  apiUrl: '/api'
+  apiUrl: '/api',
+  graphQLUrl: '/graphql'
 };

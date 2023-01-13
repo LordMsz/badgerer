@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { environment } from 'environments/environment';
 import { IBadge } from '../models/IBadge';
+import { GraphqlBaseHttpService } from 'app/shared/services';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BadgeHttpService {
-  public constructor(private httpClient: HttpClient) { }
+
+  public constructor(private httpClient: HttpClient, private graphql: GraphqlBaseHttpService) { }
 
   public get(badgeId: number): Observable<IBadge> {
     return this.httpClient.get<IBadge>(`${environment.apiUrl}/Badges/${badgeId}`);
@@ -29,5 +31,11 @@ export class BadgeHttpService {
 
   public delete(badgeId: number): Observable<any> {
     return this.httpClient.delete(`${environment.apiUrl}/Badges/${badgeId}`);
+  }
+
+  public getTotal(): Observable<number> {
+    return this.graphql.query<{badges: {totalItems: number}}>(`{ badges { totalItems } }`).pipe(
+      map(d => d.badges.totalItems)
+    );
   }
 }

@@ -1,4 +1,7 @@
 <button mat-stroked-button (click)="onRefresh()">Refresh</button>
+<span *ngIf="(badgesTotal$ | async) as total">
+    <span *bgIfLoading="total">Loading...</span>{{total.data}}
+</span>
 <ng-container *ngIf="(badges$ | async) as badges">
     <badgerer-badge-table [badges]="badges.data" (deleteBadge)="onDeleteBadge($event)">
     </badgerer-badge-table>
