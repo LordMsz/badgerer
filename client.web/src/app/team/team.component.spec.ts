@@ -4,7 +4,7 @@ import { MaterialModule } from 'app/material.module';
 
 import { TeamComponent } from './team.component';
 
-fdescribe('TeamComponent', () => {
+describe('TeamComponent', () => {
   let component: TeamComponent;
   let fixture: ComponentFixture<TeamComponent>;
 

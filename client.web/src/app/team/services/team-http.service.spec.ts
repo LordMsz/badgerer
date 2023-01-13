@@ -5,7 +5,7 @@ import { MaterialModule } from 'app/material.module';
 
 import { TeamHttpService } from './team-http.service';
 
-fdescribe('TeamHttpService', () => {
+describe('TeamHttpService', () => {
   let service: TeamHttpService;
 
   beforeEach(() => {

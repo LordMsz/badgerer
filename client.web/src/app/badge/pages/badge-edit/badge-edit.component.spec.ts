@@ -5,7 +5,7 @@ import { MaterialModule } from 'app/material.module';
 
 import { BadgeEditComponent } from './badge-edit.component';
 
-fdescribe('BadgeEditComponent', () => {
+describe('BadgeEditComponent', () => {
   let component: BadgeEditComponent;
   let fixture: ComponentFixture<BadgeEditComponent>;
 

@@ -13,7 +13,7 @@ class BadgeDetailHttpServiceMock {
   }
 }
 
-fdescribe('BadgeDetailComponent', () => {
+describe('BadgeDetailComponent', () => {
   let component: BadgeDetailComponent;
   let fixture: ComponentFixture<BadgeDetailComponent>;
 
