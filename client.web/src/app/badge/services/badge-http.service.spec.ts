@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { BadgeHttpService } from './badge-http.service';
 import { IBadge } from '../models/IBadge';
 
-fdescribe('BadgeHttpService', () => {
+describe('BadgeHttpService', () => {
   let httpTestingController: HttpTestingController;
 
   let service: BadgeHttpService;

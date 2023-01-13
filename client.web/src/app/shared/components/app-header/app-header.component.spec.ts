@@ -4,7 +4,7 @@ import { MaterialModule } from 'app/material.module';
 
 import { AppHeaderComponent } from './app-header.component';
 
-fdescribe('AppHeaderComponent', () => {
+describe('AppHeaderComponent', () => {
   let component: AppHeaderComponent;
   let fixture: ComponentFixture<AppHeaderComponent>;
 

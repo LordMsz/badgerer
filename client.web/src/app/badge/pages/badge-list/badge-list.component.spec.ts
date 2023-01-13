@@ -14,7 +14,7 @@ class BadgeHttpServiceMock {
   }
 }
 
-fdescribe('BadgeListComponent', () => {
+describe('BadgeListComponent', () => {
   let component: BadgeListComponent;
   let fixture: ComponentFixture<BadgeListComponent>;
 

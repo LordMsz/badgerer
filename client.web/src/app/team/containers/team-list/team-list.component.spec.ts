@@ -5,7 +5,7 @@ import { TeamHttpService } from 'app/team/services/team-http.service';
 
 import { TeamListComponent } from './team-list.component';
 
-fdescribe('TeamListComponent', () => {
+describe('TeamListComponent', () => {
   let component: TeamListComponent;
   let fixture: ComponentFixture<TeamListComponent>;
 
