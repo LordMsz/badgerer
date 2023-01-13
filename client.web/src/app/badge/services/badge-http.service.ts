@@ -10,23 +10,6 @@ import { GraphqlBaseHttpService } from 'app/shared/services';
   providedIn: 'root'
 })
 export class BadgeHttpService {
-  //   fetch("https://localhost:5001/graphql", {
-  //     "headers": {
-  //         "accept": "application/json, text/plain, */*",
-  //     "content-type": "application/json"
-  //             },
-  //   "body": JSON.stringify({ query: `{ badges { totalItems } }` }),
-  //   "method": "POST"
-  // }).then(x => x.json()).then(y => console.log(y));
-
-  //fetch("https://localhost:5001/graphql", {
-        //    "headers": {
-        //        "accept": "application/json, text/plain, */*",
-        //    "content-type": "application/json"
-        //            },
-        //  "body": JSON.stringify({ query: `query badges($skip: Int!, $take: Int!) { badges(skip: $skip, take: $take) { items { badgeId name } hasPreviousPage hasNextPage totalItems } }`, variables: { skip: 1, take: 1 } }),
-        //  "method": "POST"
-        //}).then(x => x.json()).then(y => console.log(y));
 
   public constructor(private httpClient: HttpClient, private graphql: GraphqlBaseHttpService) { }
 
