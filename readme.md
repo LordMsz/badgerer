@@ -24,7 +24,8 @@ Badgerer app
  - let's use https://www.npmjs.com/package/tslint-origin-ordered-imports-rule ?
  - a demo using angular CLI, like @angular/material schematics for table or nav?
 	- like "ng g c badge/components/badge-editor --display-block --lint-fix --module badge --dry-run"
-	- or ng g module change-detection --dry-run --lint-fix --routing --route change-detection --module app
+	- or ng g module change-detection --dry-run --lint-fix --routing --route change-detection --module app¨
+	- or with npx "npx @angular/cli g service --dry-run shared/services/graphql-base"
  - a demo with "providedIn": BadgeModule... for three shaking and remove "index" files
  - mention style guide and issues we have
  - TODO: investigate articles: why you sohuld never call a function in Angular template
