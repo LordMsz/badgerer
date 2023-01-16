@@ -1,4 +1,13 @@
-<button mat-stroked-button (click)="onRefresh()">Refresh</button>
+<div>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" [(ngModel)]="name" matInput placeholder="Filter by name starting with..." />
+    </mat-form-field>
+    <button mat-stroked-button (click)="onFilter()">
+        <mat-icon>search</mat-icon> Search
+    </button>
+    <button mat-stroked-button (click)="onRefresh()">Refresh</button>
+</div>
 <span *ngIf="(badgesTotal$ | async) as total">
     <span *bgIfLoading="total">Loading...</span>{{total.data}}
 </span>
