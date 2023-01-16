@@ -15,14 +15,19 @@ export class BadgeHttpService {
   public constructor(private httpClient: HttpClient, private graphql: GraphqlBaseHttpService) { }
 
   public get(id: number): Observable<IBadge> {
-    return this.httpClient.get<IBadge>(`${environment.apiUrl}/Badges/${id}`);
+    const badgeProjection = '{ id name description }'
+    const query = `query badge($id: Int!) { badge(id: $id) ${badgeProjection} }`;
+    const variables = { id: id };
+    return this.graphql.query<{ badge: IBadge }>(query, variables).pipe(
+      map(d => d.badge)
+    );
   }
 
   public getList(skip: number = 0, take: number = 50): Observable<IBadge[]> {
     const listProjection = '{ id name description }'
     const listQuery = `query badges($skip: Int!, $take: Int!) { badges(skip: $skip, take: $take) { items ${listProjection} hasPreviousPage hasNextPage totalItems } }`;
     const variables = { skip: skip, take: take };
-    return this.graphql.query<{badges: IOffsetPaging<IBadge>}>(listQuery, variables).pipe(
+    return this.graphql.query<{ badges: IOffsetPaging<IBadge> }>(listQuery, variables).pipe(
       map(d => d.badges.items)
     );
   }
@@ -40,7 +45,7 @@ export class BadgeHttpService {
   }
 
   public getTotal(): Observable<number> {
-    return this.graphql.query<{badges: {totalItems: number}}>(`{ badges { totalItems } }`).pipe(
+    return this.graphql.query<{ badges: { totalItems: number } }>(`{ badges { totalItems } }`).pipe(
       map(d => d.badges.totalItems)
     );
   }
