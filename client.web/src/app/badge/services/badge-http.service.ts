@@ -5,6 +5,7 @@ import { map, Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { IBadge } from '../models/IBadge';
 import { GraphqlBaseHttpService } from 'app/shared/services';
+import { IOffsetPaging } from 'app/shared/models';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,13 @@ export class BadgeHttpService {
     return this.httpClient.get<IBadge>(`${environment.apiUrl}/Badges/${badgeId}`);
   }
 
-  public getList(): Observable<IBadge[]> {
-    return this.httpClient.get<IBadge[]>(`${environment.apiUrl}/Badges`);
+  public getList(skip: number = 0, take: number = 50): Observable<IBadge[]> {
+    const listProjection = '{ badgeId name description }'
+    const listQuery = `query badges($skip: Int!, $take: Int!) { badges(skip: $skip, take: $take) { items ${listProjection} hasPreviousPage hasNextPage totalItems } }`;
+    const variables = { skip: skip, take: take };
+    return this.graphql.query<{badges: IOffsetPaging<IBadge>}>(listQuery, variables).pipe(
+      map(d => d.badges.items)
+    );
   }
 
   public create(badge: IBadge): Observable<IBadge> {
