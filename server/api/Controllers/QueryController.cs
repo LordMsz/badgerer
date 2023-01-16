@@ -54,5 +54,11 @@ namespace Badgerer.Api.Controllers
             }
         }
 
+        [HttpGet("schema")]
+        public string GetSchema()
+        {
+            return _schemaProvider.ToGraphQLSchemaString();
+        }
+
     }
 }

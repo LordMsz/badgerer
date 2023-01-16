@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'badgerer-app-header',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-header.component.scss']
 })
 export class AppHeaderComponent {
+  public isProd: boolean = environment.production;
 }
