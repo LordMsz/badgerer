@@ -77,6 +77,8 @@ namespace Badgerer.Api
             {
                 app.UseDeveloperExceptionPage();
 
+                app.UseStaticFiles(); // for GraphiQL atm
+
                 app.UseSwagger(c => c.RouteTemplate = "api/swagger/{documentname}/swagger.json");
                 app.UseSwaggerUI(c =>
                 {

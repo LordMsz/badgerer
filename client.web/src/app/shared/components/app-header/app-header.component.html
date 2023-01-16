@@ -2,5 +2,6 @@
   <mat-toolbar-row>
     <a class="logo" routerLink="/" matTooltip="Badgerer home"><img src="assets/badgerer_logo.svg" /></a>
     <ng-content></ng-content>
+    <a href="/graphiql.html" *ngIf="!isProd" title="Open GraphiQL tool in new tab" target="_blank">GraphiQL</a>
   </mat-toolbar-row>
 </mat-toolbar>
