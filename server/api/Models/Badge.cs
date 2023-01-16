@@ -8,8 +8,7 @@ namespace Badgerer.Api.Models
     [Table("Badge")]
     public partial class Badge
     {
-        [Key]
-        public int BadgeId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(250)]

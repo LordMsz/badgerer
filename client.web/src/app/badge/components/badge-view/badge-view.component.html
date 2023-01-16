@@ -1,4 +1,4 @@
-<h2>{{badge?.name || badgePlaceholder?.name}} <span>(id {{ badgePlaceholder?.badgeId }})</span></h2>
+<h2>{{badge?.name || badgePlaceholder?.name}} <span>(id {{ badgePlaceholder?.id }})</span></h2>
 <div *ngIf="!!badge; else loading">
     <p>{{badge?.description}}</p>
 </div>
@@ -10,7 +10,7 @@
     <a mat-stroked-button routerLink="/badge/list" matTooltip="Back to badges list">
         <mat-icon>arrow_back</mat-icon> Back
     </a>
-    <a mat-stroked-button routerLink="/badge/edit/{{ badgePlaceholder?.badgeId }}/{{ badge?.name || badgePlaceholder?.name }}" matTooltip="Edit this badge">
+    <a mat-stroked-button routerLink="/badge/edit/{{ badgePlaceholder?.id }}/{{ badge?.name || badgePlaceholder?.name }}" matTooltip="Edit this badge">
         <mat-icon>edit</mat-icon> Edit
     </a>
 </div>

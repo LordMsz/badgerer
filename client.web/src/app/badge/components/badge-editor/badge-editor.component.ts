@@ -35,7 +35,7 @@ export class BadgeEditorComponent implements OnInit {
     if (this.badgeForm.valid) {
       const fv = this.badgeForm.value;
       const result: IBadge = {
-        badgeId: this.badge ? this.badge.badgeId : null,
+        id: this.badge ? this.badge.id : null,
         name: fv.name,
         description: fv.description
       };

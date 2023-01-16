@@ -21,11 +21,11 @@ export class BadgeDetailComponent {
     badgeHttpService: BadgeHttpService,
   ) {
     this.badgePlaceholder$ = route.params.pipe(
-      map(p => ({ badgeId: p.id, name: p.badgeUrlName }))
+      map(p => ({ id: p.id, name: p.badgeUrlName }))
     );
 
     this.badge$ = this.badgePlaceholder$.pipe(
-      switchMap(rd => badgeHttpService.get(rd.badgeId))
+      switchMap(rd => badgeHttpService.get(rd.id))
     );
   }
 

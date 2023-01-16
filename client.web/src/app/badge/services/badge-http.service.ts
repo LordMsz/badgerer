@@ -14,12 +14,12 @@ export class BadgeHttpService {
 
   public constructor(private httpClient: HttpClient, private graphql: GraphqlBaseHttpService) { }
 
-  public get(badgeId: number): Observable<IBadge> {
-    return this.httpClient.get<IBadge>(`${environment.apiUrl}/Badges/${badgeId}`);
+  public get(id: number): Observable<IBadge> {
+    return this.httpClient.get<IBadge>(`${environment.apiUrl}/Badges/${id}`);
   }
 
   public getList(skip: number = 0, take: number = 50): Observable<IBadge[]> {
-    const listProjection = '{ badgeId name description }'
+    const listProjection = '{ id name description }'
     const listQuery = `query badges($skip: Int!, $take: Int!) { badges(skip: $skip, take: $take) { items ${listProjection} hasPreviousPage hasNextPage totalItems } }`;
     const variables = { skip: skip, take: take };
     return this.graphql.query<{badges: IOffsetPaging<IBadge>}>(listQuery, variables).pipe(
@@ -32,11 +32,11 @@ export class BadgeHttpService {
   }
 
   public update(badge: IBadge) {
-    return this.httpClient.put<IBadge>(`${environment.apiUrl}/Badges/${badge.badgeId}`, badge);
+    return this.httpClient.put<IBadge>(`${environment.apiUrl}/Badges/${badge.id}`, badge);
   }
 
-  public delete(badgeId: number): Observable<any> {
-    return this.httpClient.delete(`${environment.apiUrl}/Badges/${badgeId}`);
+  public delete(id: number): Observable<any> {
+    return this.httpClient.delete(`${environment.apiUrl}/Badges/${id}`);
   }
 
   public getTotal(): Observable<number> {

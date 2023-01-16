@@ -63,7 +63,7 @@ namespace Badgerer.Api.Controllers
             _context.Badges.Add(badge);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = badge.BadgeId }, badge);
+            return CreatedAtAction(nameof(GetById), new { id = badge.Id }, badge);
         }
 
         [HttpPut("{id}")]

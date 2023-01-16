@@ -38,7 +38,7 @@ export class BadgeListComponent {
     );
   }
 
-  public onDeleteBadge(badgeId: number): void {
+  public onDeleteBadge(id: number): void {
     const dialogRef = this.dialog.open(this.confirmDialogTemplate, {
       data: {
         title: 'Delete badge?',
@@ -47,7 +47,7 @@ export class BadgeListComponent {
     });
     dialogRef.afterClosed().pipe(
       filter(r => !!r),
-      switchMap(r => this.badgeHttpService.delete(badgeId))
+      switchMap(r => this.badgeHttpService.delete(id))
     ).subscribe(
       result => {
         this.onRefresh();

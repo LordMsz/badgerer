@@ -6,8 +6,7 @@ namespace Badgerer.Api.Models
     [Table("Team")]
     public partial class Team
     {
-        [Key]
-        public int TeamId { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(250)]
         public string? Name { get; set; }
