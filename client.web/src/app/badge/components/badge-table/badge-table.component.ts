@@ -14,7 +14,7 @@ export class BadgeTableComponent {
 
   @Output() public deleteBadge = new EventEmitter<number>();
 
-  public displayedColumns: string[] = ['badgeId', 'name', 'description', 'actions'];
+  public displayedColumns: string[] = ['id', 'name', 'description', 'actions'];
 
   public constructor() { }
 

@@ -22,7 +22,7 @@ export class BadgeNewComponent {
     this.badgeHttpService.create(badge).subscribe(
       r => {
         this.router.navigate(['badge', 'list']);
-        this.snackBar.open(`Badge id ${r.badgeId} succesfully created`);
+        this.snackBar.open(`Badge id ${r.id} succesfully created`);
       },
       e => this.snackBar.open(`Failed to create a badge! ${e ? e.message : ''}`)
     );

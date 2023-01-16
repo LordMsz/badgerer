@@ -48,7 +48,7 @@ namespace Badgerer.Api.Controllers
             _context.Teams.Add(team);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = team.TeamId }, team);
+            return CreatedAtAction(nameof(GetById), new { id = team.Id }, team);
         }
 
         [HttpPut("{id}")]

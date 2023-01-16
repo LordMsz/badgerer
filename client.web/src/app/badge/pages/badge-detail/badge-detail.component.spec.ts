@@ -9,7 +9,7 @@ import { BadgeViewComponent } from '@badgerer/badge/components/badge-view/badge-
 
 class BadgeDetailHttpServiceMock {
   public get(): Observable<IBadge> {
-    return of({badgeId: 1, name: 'test', description: 'description test'});
+    return of({id: 1, name: 'test', description: 'description test'});
   }
 }
 

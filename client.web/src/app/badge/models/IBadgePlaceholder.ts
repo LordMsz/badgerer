@@ -1,4 +1,4 @@
 export interface IBadgePlaceholder {
-    badgeId: number;
+    id: number;
     name: string;
 }
