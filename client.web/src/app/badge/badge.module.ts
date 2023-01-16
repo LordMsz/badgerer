@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BadgeRoutingModule } from './badge-routing.module';
 import { BadgeComponent } from './badge.component';
@@ -28,6 +28,7 @@ import { SharedModule } from 'app/shared/shared.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
 
     MaterialModule,

@@ -20,6 +20,8 @@ export class BadgeListComponent {
   public badges$: Observable<ILoadable<IBadge[]>>;
   public badgesTotal$: Observable<ILoadable<number>>;
 
+  public name: string = null;
+
   public constructor(
     private readonly badgeHttpService: BadgeHttpService,
     private readonly dialog: MatDialog,
@@ -28,8 +30,9 @@ export class BadgeListComponent {
     this.onRefresh();
   }
 
-  public onRefresh(): void {
-    this.badges$ = this.badgeHttpService.getList().pipe(
+  public onRefresh(name: string = null): void {
+    this.name = name;
+    this.badges$ = this.badgeHttpService.getList(name).pipe(
       withLoading()
     );
 
@@ -56,5 +59,9 @@ export class BadgeListComponent {
         this.snackBar.open(`Failed to delete the badge! ${error ? error.message : ''}`);
       }
     );
+  }
+
+  public onFilter() {
+    this.onRefresh(this.name);
   }
 }

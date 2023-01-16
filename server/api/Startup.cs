@@ -62,7 +62,10 @@ namespace Badgerer.Api
             services.AddDbContext<BadgererContext>(opt =>
                opt.UseSqlServer(Configuration.GetConnectionString("BadgererDB")));
 
-            services.AddGraphQLSchema<BadgererContext>(); // add SchemaProvider and build schema
+            services.AddGraphQLSchema<BadgererContext>(o =>
+            {
+                o.ConfigureSchema = GraphQLSchema.ConfigureSchema;
+            }); // add SchemaProvider and build schema
 
             services.AddSpaStaticFiles(spa =>
             {
